@@ -1,0 +1,15 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-dotenv==1.0.0
+requests==2.31.0
+transformers==4.35.2
+torch==2.1.1
+pillow==10.1.0
+pytesseract==0.3.10
+opencv-python==4.8.1.78
+numpy==1.24.3
+python-multipart
+accelerate==0.24.1        # ← ADD FOR OPTIMIZATION
+safetensors==0.4.1        # ← ADD FOR MODEL LOADING
+sentencepiece==0.1.99     # ← ADD FOR TOKENIZATION
+protobuf==3.20.3          # ← ADD FOR PROTOCOL BUFFERS
