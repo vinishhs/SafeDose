@@ -17,7 +17,7 @@ except ImportError:
 
 
 st.set_page_config(
-    page_title="Clinical Ether",
+    page_title="SafeDose",
     page_icon="⚕️",
     layout="wide",
 )
@@ -476,15 +476,12 @@ st.markdown(
         <div class="brand">
             <div class="brand-mark">✚</div>
             <div class="brand-copy">
-                <h1>Clinical Ether</h1>
+                <h1>SafeDose</h1>
                 <p>Prescription intelligence with patient-aware safety checks.</p>
             </div>
         </div>
-        <div class="top-actions">
-            <div class="glass-chip">OCR Ready</div>
-            <div class="glass-chip">Safety Review</div>
-        </div>
-    </div>
+        
+    
 </div>
 """,
     unsafe_allow_html=True,
@@ -528,7 +525,7 @@ with left_col:
             max_value=120,
             value=30,
             step=1,
-            help="Default age is 30.",
+            
         )
         gender = st.selectbox(
             "Gender",
@@ -617,7 +614,7 @@ with right_col:
             prescription_text = st.text_area(
                 "Manual prescription text",
                 value=st.session_state.get("ocr_text", ""),
-                height=320,
+                height=310,
                 placeholder="Paste or type the prescription text here...",
             )
 
