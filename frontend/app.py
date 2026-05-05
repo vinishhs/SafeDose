@@ -777,11 +777,12 @@ def build_drug_rows(drugs):
 
     rows = []
     for drug in drugs:
-        dosage = safe_text(drug.get("dosage"), "Dosage not detected")
-        frequency = safe_text(drug.get("frequency"), "Frequency not detected")
+        name = drug.get("name") or drug.get("normalized_name")
+        dosage = safe_text(drug.get("dosage") or drug.get("dosage_text"), "Dosage not detected")
+        frequency = safe_text(drug.get("frequency") or drug.get("frequency_text"), "Frequency not detected")
         rows.append(
             '<div class="data-row">'
-            f'<div class="data-title">{safe_text(drug.get("name"), "Unknown Drug")}</div>'
+            f'<div class="data-title">{safe_text(name, "Unknown Drug")}</div>'
             f'<div class="data-subtitle">{dosage}<br>{frequency}</div>'
             "</div>"
         )
@@ -795,7 +796,15 @@ def build_dosage_items(alerts):
     items = []
     for alert in alerts:
         issue = safe_text(alert.get("issue"), "Dosage guidance available")
-        recommended = alert.get("recommended_dosage")
+        recommended = alert.get("recommended_dosage") or alert.get("recommendation")
+        parsed = alert.get("parsed_mg_per_day")
+        limits = ""
+        if parsed is not None:
+            limits = (
+                f'<div class="data-note">Parsed: {safe_text(parsed)} mg/day; '
+                f'Range: {safe_text(alert.get("min_mg_per_day"))}-'
+                f'{safe_text(alert.get("max_mg_per_day"))} mg/day</div>'
+            )
         recommendation = (
             f'<div class="data-note">Recommended: {safe_text(recommended)}</div>'
             if recommended
@@ -805,6 +814,7 @@ def build_dosage_items(alerts):
             '<div class="status-item info">'
             f'<div class="status-title">{safe_text(alert.get("drug"), "Unknown Drug")}</div>'
             f'<div class="data-note">{issue}</div>'
+            f"{limits}"
             f"{recommendation}"
             "</div>"
         )
@@ -821,13 +831,46 @@ def build_interaction_items(interactions):
             f'{safe_text(interaction.get("drug_a"), "Drug A")} + '
             f'{safe_text(interaction.get("drug_b"), "Drug B")}'
         )
+        description = interaction.get("description") or interaction.get("effect")
         items.append(
             '<div class="status-item warning">'
             f'<div class="status-title">{title}</div>'
-            f'<div class="data-note">{safe_text(interaction.get("description"), "Potential interaction")}</div>'
+            f'<div class="data-note">{safe_text(description, "Potential interaction")}</div>'
             "</div>"
         )
     return f'<div class="status-list">{"".join(items)}</div>'
+
+
+def build_allergy_items(alerts):
+    if not alerts:
+        return '<div class="empty-state">No allergy conflicts were returned.</div>'
+
+    items = []
+    for alert in alerts:
+        items.append(
+            '<div class="status-item warning">'
+            f'<div class="status-title">{safe_text(alert.get("drug"), "Unknown Drug")}</div>'
+            f'<div class="data-note">Allergen: {safe_text(alert.get("allergen"), "UNKNOWN")}</div>'
+            f'<div class="data-note">{safe_text(alert.get("recommendation"), "UNKNOWN")}</div>'
+            "</div>"
+        )
+    return f'<div class="status-list">{"".join(items)}</div>'
+
+
+def build_unknown_items(items):
+    if not items:
+        return '<div class="empty-state">No unknown dataset gaps were returned.</div>'
+
+    cards = []
+    for item in items:
+        cards.append(
+            '<div class="status-item warning">'
+            f'<div class="status-title">{safe_text(item.get("type"), "UNKNOWN")}: {safe_text(item.get("value"), "UNKNOWN")}</div>'
+            f'<div class="data-note">{safe_text(item.get("reason"), "UNKNOWN")}</div>'
+            f'<div class="data-note">Source: {safe_text(item.get("source"), "UNKNOWN")}</div>'
+            "</div>"
+        )
+    return f'<div class="status-list">{"".join(cards)}</div>'
 
 
 def build_alternative_cards(alternatives):
@@ -1057,14 +1100,22 @@ if st.session_state.get("analysis_error"):
 
 result = st.session_state.get("analysis_result")
 if result:
-    is_safe = result.get("is_safe", False)
-    banner_class = "result-safe" if is_safe else "result-alert"
-    banner_title = "Prescription appears clear for the current rule set." if is_safe else "Prescription needs attention before use."
-    banner_body = (
-        "No interaction or dosage conflicts were returned by the current checks."
-        if is_safe
-        else "One or more interactions, dosage advisories, or substitution hints were returned."
-    )
+    safety = result.get("safety")
+    if safety is None:
+        safety = "safe" if result.get("is_safe", False) else "caution"
+    banner_class = "result-safe" if safety == "safe" else "result-alert"
+    banner_title = {
+        "safe": "Prescription appears clear for the current dataset rules.",
+        "caution": "Prescription needs review before use.",
+        "unsafe": "Prescription is unsafe under the current dataset rules.",
+        "unknown": "Prescription cannot be fully classified from available data.",
+    }.get(safety, "Prescription needs review before use.")
+    banner_body = {
+        "safe": "No interaction, dosage, allergy, or dataset gaps were returned.",
+        "caution": "Moderate issues, dosage issues, or allergy alerts were returned.",
+        "unsafe": "At least one high-severity issue was returned from the datasets.",
+        "unknown": "One or more required data points are missing, so the system did not guess.",
+    }.get(safety, "Review the structured results below.")
 
     st.markdown(
         f"""
@@ -1077,19 +1128,19 @@ if result:
     )
 
     extracted_drugs = unique_items(
-        result.get("extracted_drugs", []),
+        result.get("normalized_drugs") or result.get("extracted_drugs", []),
         lambda item: (
-            str(item.get("name", "")).strip().lower(),
-            str(item.get("dosage", "")).strip().lower(),
-            str(item.get("frequency", "")).strip().lower(),
+            str(item.get("normalized_name") or item.get("name", "")).strip().lower(),
+            str(item.get("dosage_text") or item.get("dosage", "")).strip().lower(),
+            str(item.get("frequency_text") or item.get("frequency", "")).strip().lower(),
         ),
     )
     dosage_alerts = unique_items(
-        result.get("dosage_alerts", []),
+        result.get("dosage_issues") or result.get("dosage_alerts", []),
         lambda item: (
             str(item.get("drug", "")).strip().lower(),
             str(item.get("issue", "")).strip().lower(),
-            str(item.get("recommended_dosage", "")).strip().lower(),
+            str(item.get("recommendation") or item.get("recommended_dosage", "")).strip().lower(),
         ),
     )
     interactions = unique_items(
@@ -1101,7 +1152,14 @@ if result:
                     str(item.get("drug_b", "")).strip().lower(),
                 ]
             )
-            + [str(item.get("description", "")).strip().lower()]
+            + [str(item.get("effect") or item.get("description", "")).strip().lower()]
+        ),
+    )
+    allergy_alerts = unique_items(
+        result.get("allergy_alerts", []),
+        lambda item: (
+            str(item.get("allergen", "")).strip().lower(),
+            str(item.get("drug", "")).strip().lower(),
         ),
     )
     alternatives = unique_items(
@@ -1137,6 +1195,19 @@ if result:
                 len(alternatives),
                 build_alternative_cards(alternatives),
             ),
+            unsafe_allow_html=True,
+        )
+
+    detail_left, detail_right = st.columns(2, gap="large")
+    with detail_left:
+        st.markdown(
+            render_report_panel("Allergy Alerts", len(allergy_alerts), build_allergy_items(allergy_alerts)),
+            unsafe_allow_html=True,
+        )
+    with detail_right:
+        unknowns = result.get("unknowns", [])
+        st.markdown(
+            render_report_panel("Unknown Data", len(unknowns), build_unknown_items(unknowns)),
             unsafe_allow_html=True,
         )
 

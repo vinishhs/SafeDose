@@ -1,0 +1,40 @@
+{
+  "atorvastatin": [
+    {
+      "drug": "pravastatin",
+      "reason": "Dataset-listed statin alternative.",
+      "source_id": "sample-alt-001"
+    },
+    {
+      "drug": "rosuvastatin",
+      "reason": "Dataset-listed statin alternative.",
+      "source_id": "sample-alt-002"
+    }
+  ],
+  "clarithromycin": [
+    {
+      "drug": "azithromycin",
+      "reason": "Dataset-listed macrolide alternative.",
+      "source_id": "sample-alt-003"
+    },
+    {
+      "drug": "amoxicillin",
+      "reason": "Dataset-listed antibiotic alternative.",
+      "source_id": "sample-alt-004"
+    }
+  ],
+  "ibuprofen": [
+    {
+      "drug": "acetaminophen",
+      "reason": "Dataset-listed analgesic alternative.",
+      "source_id": "sample-alt-005"
+    }
+  ],
+  "aspirin": [
+    {
+      "drug": "clopidogrel",
+      "reason": "Dataset-listed antiplatelet alternative.",
+      "source_id": "sample-alt-006"
+    }
+  ]
+}

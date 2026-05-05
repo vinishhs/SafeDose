@@ -8,6 +8,7 @@ pillow==10.1.0
 pytesseract==0.3.10
 opencv-python==4.8.1.78
 numpy==1.24.3
+rapidfuzz
 python-multipart
 accelerate==0.24.1        # ← ADD FOR OPTIMIZATION
 safetensors==0.4.1        # ← ADD FOR MODEL LOADING
