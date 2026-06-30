@@ -1,103 +1,16 @@
 {
-  "_brand_to_generic": {
-    "lipitor": "atorvastatin",
-    "biaxin": "clarithromycin",
-    "advil": "ibuprofen",
-    "motrin": "ibuprofen",
-    "coumadin": "warfarin",
-    "prinivil": "lisinopril",
-    "zestril": "lisinopril"
-  },
-  "atorvastatin": {
-    "adult": {
-      "min": 10,
-      "max": 80,
-      "unit": "mg/day",
-      "underdose_severity": "moderate",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-001"
-    },
-    "elderly": {
-      "min": 10,
-      "max": 80,
-      "unit": "mg/day",
-      "underdose_severity": "moderate",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-002"
-    }
-  },
-  "clarithromycin": {
-    "adult": {
-      "min": 500,
-      "max": 1000,
-      "unit": "mg/day",
-      "underdose_severity": "moderate",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-003"
-    },
-    "elderly": {
-      "min": 500,
-      "max": 1000,
-      "unit": "mg/day",
-      "underdose_severity": "moderate",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-004"
-    }
+  "paracetamol": {
+    "adult": { "min": 500, "max": 4000 },
+    "child": { "min": 10, "max": 60 }
   },
   "ibuprofen": {
-    "adult": {
-      "min": 600,
-      "max": 1200,
-      "unit": "mg/day",
-      "underdose_severity": "low",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-005"
-    },
-    "child": {
-      "min": 100,
-      "max": 400,
-      "unit": "mg/day",
-      "underdose_severity": "low",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-006"
-    }
+    "adult": { "min": 200, "max": 1200 },
+    "child": { "min": 5, "max": 40 }
   },
-  "aspirin": {
-    "adult": {
-      "min": 75,
-      "max": 325,
-      "unit": "mg/day",
-      "underdose_severity": "low",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-007"
-    }
+  "atorvastatin": {
+    "adult": { "min": 10, "max": 80 }
   },
-  "warfarin": {
-    "adult": {
-      "min": 1,
-      "max": 10,
-      "unit": "mg/day",
-      "underdose_severity": "moderate",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-008"
-    }
-  },
-  "lisinopril": {
-    "adult": {
-      "min": 10,
-      "max": 40,
-      "unit": "mg/day",
-      "underdose_severity": "low",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-009"
-    },
-    "elderly": {
-      "min": 5,
-      "max": 40,
-      "unit": "mg/day",
-      "underdose_severity": "low",
-      "overdose_severity": "high",
-      "source_id": "sample-dosage-010"
-    }
+  "clarithromycin": {
+    "adult": { "min": 500, "max": 1000 }
   }
 }

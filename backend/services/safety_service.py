@@ -12,15 +12,6 @@ def compute_safety(
     if any(alert.severity == "high" for alert in interactions):
         return "unsafe"
 
-    if any(alert.severity == "high" for alert in allergy_alerts):
-        return "unsafe"
-
-    if any(issue.severity == "high" for issue in dosage_issues):
-        return "unsafe"
-
-    if unknowns:
-        return "unknown"
-
     has_moderate_interaction = any(alert.severity == "moderate" for alert in interactions)
     if has_moderate_interaction or dosage_issues or allergy_alerts:
         return "caution"

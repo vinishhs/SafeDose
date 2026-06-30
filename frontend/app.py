@@ -1,5 +1,4 @@
 import io
-import html
 import os
 import shutil
 
@@ -30,20 +29,20 @@ st.markdown(
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --bg-top: #f7fbff;
-    --bg-bottom: #eef6fb;
-    --panel: rgba(255, 255, 255, 0.96);
-    --panel-soft: rgba(248, 252, 255, 0.96);
-    --line: rgba(43, 92, 127, 0.14);
-    --text: #142235;
-    --muted: #617085;
-    --teal: #18a8a6;
-    --cyan: #1bb7c8;
-    --blue: #3578e5;
-    --blue-soft: rgba(53, 120, 229, 0.12);
-    --good: #138a72;
-    --warn: #b7791f;
-    --bad: #c2414b;
+    --bg-top: #0c1b2c;
+    --bg-bottom: #171b3b;
+    --panel: rgba(18, 29, 49, 0.94);
+    --panel-soft: rgba(30, 41, 68, 0.94);
+    --line: rgba(138, 161, 188, 0.22);
+    --text: #e8eefc;
+    --muted: #9aa8c6;
+    --teal: #46e0db;
+    --cyan: #32cbd0;
+    --blue: #4263ff;
+    --blue-soft: rgba(66, 99, 255, 0.18);
+    --good: #44d6b8;
+    --warn: #f0c56b;
+    --bad: #ff8e91;
 }
 
 html, body, [class*="css"]  {
@@ -52,17 +51,15 @@ html, body, [class*="css"]  {
 
 [data-testid="stAppViewContainer"] {
     background:
-        radial-gradient(circle at 12% 18%, rgba(27, 183, 200, 0.16), transparent 28%),
-        radial-gradient(circle at 88% 26%, rgba(53, 120, 229, 0.12), transparent 22%),
+        radial-gradient(circle at 12% 18%, rgba(52, 203, 208, 0.18), transparent 28%),
+        radial-gradient(circle at 88% 26%, rgba(79, 96, 255, 0.16), transparent 22%),
         linear-gradient(135deg, var(--bg-top), var(--bg-bottom));
     color: var(--text);
 }
 
 [data-testid="stHeader"] {
-    background: rgba(255, 255, 255, 0.82);
-    border-bottom: 1px solid rgba(43, 92, 127, 0.1);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(7, 14, 27, 0.45);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 [data-testid="stToolbar"] {
@@ -103,11 +100,11 @@ html, body, [class*="css"]  {
     border-radius: 12px;
     display: grid;
     place-items: center;
-    color: #ffffff;
+    color: #06141d;
     font-size: 1.25rem;
     font-weight: 700;
-    background: linear-gradient(135deg, var(--teal), var(--blue));
-    box-shadow: 0 12px 28px rgba(53, 120, 229, 0.2);
+    background: linear-gradient(135deg, var(--teal), #78f5d6);
+    box-shadow: 0 12px 32px rgba(70, 224, 219, 0.22);
 }
 
 .brand-copy h1 {
@@ -115,7 +112,7 @@ html, body, [class*="css"]  {
     font-size: 2rem;
     letter-spacing: -0.04em;
     line-height: 1;
-    color: #143a5a;
+    color: #6cf6e5;
 }
 
 .brand-copy p {
@@ -130,20 +127,20 @@ html, body, [class*="css"]  {
 }
 
 .glass-chip {
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--muted);
-    background: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.04);
     border-radius: 999px;
     padding: 0.65rem 1rem;
     font-size: 0.92rem;
 }
 
 .hero-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 251, 255, 0.96));
-    border: 1px solid var(--line);
-    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(19, 31, 52, 0.96), rgba(22, 29, 55, 0.92));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 34px;
     padding: 1.8rem 1.9rem 2rem 1.9rem;
-    box-shadow: 0 24px 58px rgba(54, 94, 130, 0.12);
+    box-shadow: 0 28px 80px rgba(3, 8, 18, 0.36);
 }
 
 .hero-copy {
@@ -156,8 +153,8 @@ html, body, [class*="css"]  {
     gap: 0.55rem;
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
-    background: rgba(24, 168, 166, 0.1);
-    color: #0f7778;
+    background: rgba(70, 224, 219, 0.12);
+    color: #7ef7ea;
     font-size: 0.86rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -168,7 +165,6 @@ html, body, [class*="css"]  {
     font-size: 3rem;
     line-height: 1.02;
     letter-spacing: -0.05em;
-    color: #10243a;
 }
 
 .hero-copy p {
@@ -179,19 +175,19 @@ html, body, [class*="css"]  {
 }
 
 .section-card {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 252, 255, 0.94));
+    background: linear-gradient(180deg, rgba(20, 30, 50, 0.84), rgba(22, 30, 56, 0.86));
     border: 1px solid var(--line);
     border-radius: 28px;
     padding: 1.35rem 1.35rem 1.15rem 1.35rem;
-    min-height: 10%;
+    min-height: 100%;
 }
 
 [data-testid="stVerticalBlockBorderWrapper"] {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 252, 255, 0.94));
+    background: linear-gradient(180deg, rgba(20, 30, 50, 0.88), rgba(22, 30, 56, 0.9));
     border: 1px solid var(--line) !important;
     border-radius: 28px !important;
     padding: 0.4rem 0.55rem !important;
-    box-shadow: 0 18px 42px rgba(54, 94, 130, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
 }
 
 .section-title {
@@ -202,7 +198,6 @@ html, body, [class*="css"]  {
     margin: 0;
     font-size: 1.75rem;
     letter-spacing: -0.03em;
-    color: #143a5a;
 }
 
 .section-title p {
@@ -212,7 +207,7 @@ html, body, [class*="css"]  {
 }
 
 .input-label {
-    color: #51657c;
+    color: #c9d6ef;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-size: 0.8rem;
@@ -228,164 +223,36 @@ html, body, [class*="css"]  {
 .result-banner {
     border-radius: 20px;
     padding: 1rem 1.1rem;
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     margin-top: 1rem;
 }
 
 .result-safe {
-    background: #e8f8f3;
-    color: #0f6e5b;
+    background: rgba(68, 214, 184, 0.12);
+    color: #b7fff1;
+}
+
+.result-caution {
+    background: rgba(240, 197, 107, 0.12);
+    color: #fdecc8;
+}
+
+.result-unsafe {
+    background: rgba(255, 142, 145, 0.12);
+    color: #ffd8db;
 }
 
 .result-alert {
-    background: #fff1f2;
-    color: #a8323c;
+    background: rgba(255, 142, 145, 0.12);
+    color: #ffd8db;
 }
 
 .mini-title {
-    color: #143a5a;
+    color: #dbe5fb;
     font-size: 1.02rem;
     margin-top: 1rem;
     margin-bottom: 0.55rem;
     letter-spacing: 0.01em;
-}
-
-.report-panel {
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 18px 44px rgba(54, 94, 130, 0.1);
-    margin-top: 1rem;
-}
-
-.report-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.9rem;
-    padding: 0.9rem 1rem;
-    background: #f7fbff;
-    border-bottom: 1px solid var(--line);
-}
-
-.report-header h3 {
-    margin: 0;
-    color: #143a5a;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0;
-}
-
-.count-pill {
-    flex: 0 0 auto;
-    border: 1px solid rgba(24, 168, 166, 0.22);
-    border-radius: 999px;
-    padding: 0.24rem 0.58rem;
-    color: #0f7778;
-    background: rgba(24, 168, 166, 0.1);
-    font-size: 0.78rem;
-    font-weight: 700;
-}
-
-.report-body {
-    padding: 0.8rem;
-}
-
-.data-row {
-    display: grid;
-    grid-template-columns: minmax(120px, 0.7fr) minmax(0, 1fr);
-    gap: 0.9rem;
-    align-items: start;
-    padding: 0.82rem 0.75rem;
-    border-bottom: 1px solid var(--line);
-}
-
-.data-row:last-child {
-    border-bottom: 0;
-}
-
-.data-title {
-    color: #142235;
-    font-weight: 700;
-    line-height: 1.25;
-}
-
-.data-subtitle,
-.data-note {
-    color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.45;
-}
-
-.status-list {
-    display: grid;
-    gap: 0.62rem;
-}
-
-.status-item {
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 0.76rem 0.85rem;
-    background: #fbfdff;
-}
-
-.status-item.warning {
-    border-color: rgba(183, 121, 31, 0.22);
-    background: #fff8e8;
-}
-
-.status-item.info {
-    border-color: rgba(24, 168, 166, 0.18);
-    background: #eefafa;
-}
-
-.status-title {
-    color: #142235;
-    font-weight: 700;
-    margin-bottom: 0.25rem;
-}
-
-.empty-state {
-    color: var(--muted);
-    padding: 0.9rem 0.75rem;
-    border: 1px dashed rgba(43, 92, 127, 0.22);
-    border-radius: 14px;
-    background: #fbfdff;
-}
-
-.alternative-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
-    gap: 0.72rem;
-}
-
-.alternative-card {
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 0.82rem;
-    background: #fbfdff;
-}
-
-.alternative-route {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.48rem;
-    color: #142235;
-    font-weight: 700;
-    line-height: 1.25;
-}
-
-.route-arrow {
-    color: #0f9899;
-    font-weight: 800;
-}
-
-.alternative-reason {
-    color: var(--muted);
-    font-size: 0.86rem;
-    line-height: 1.45;
 }
 
 .note {
@@ -398,7 +265,7 @@ div[data-baseweb="base-input"] input,
 div[data-baseweb="textarea"] textarea,
 textarea,
 input {
-    background: #ffffff !important;
+    background: rgba(255, 255, 255, 0.06) !important;
     color: var(--text) !important;
     border-radius: 18px !important;
 }
@@ -407,17 +274,12 @@ div[data-baseweb="select"] > div,
 div[data-baseweb="input"] > div,
 div[data-baseweb="base-input"] > div,
 div[data-baseweb="textarea"] > div {
-    background: #ffffff !important;
-    border: 1px solid rgba(43, 92, 127, 0.16) !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04)) !important;
+    border: 1px solid rgba(178, 193, 223, 0.18) !important;
     border-radius: 18px !important;
-    box-shadow: 0 8px 20px rgba(54, 94, 130, 0.08) !important;
-}
-
-div[data-baseweb="select"] *,
-div[data-baseweb="input"] *,
-div[data-baseweb="base-input"] *,
-div[data-baseweb="textarea"] * {
-    color: var(--text) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 10px 24px rgba(3, 8, 18, 0.18) !important;
+    backdrop-filter: blur(14px) saturate(135%);
+    -webkit-backdrop-filter: blur(14px) saturate(135%);
 }
 
 div[data-baseweb="select"] span,
@@ -428,42 +290,33 @@ li {
     color: var(--text);
 }
 
-div[data-baseweb="select"] [aria-selected="true"],
-div[data-baseweb="select"] [role="option"],
-div[data-baseweb="select"] [role="listbox"],
-ul[role="listbox"],
-[role="listbox"] {
-    background: #ffffff !important;
-    color: var(--text) !important;
-}
-
 div[data-baseweb="select"] input {
-    color: var(--text) !important;
+    color: #f2f5ff !important;
 }
 
 div[data-baseweb="select"] svg {
-    color: rgba(20, 34, 53, 0.62) !important;
+    color: rgba(232, 238, 252, 0.72) !important;
 }
 
 div[data-baseweb="popover"] {
-    background: rgba(255, 255, 255, 0.96) !important;
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border: 1px solid var(--line) !important;
+    background: rgba(26, 30, 36, 0.78) !important;
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 18px !important;
-    box-shadow: 0 18px 40px rgba(54, 94, 130, 0.16) !important;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34) !important;
 }
 
 div[data-baseweb="popover"] ul {
-    background: #ffffff !important;
+    background: transparent !important;
     padding: 0.45rem 0 !important;
 }
 
 div[data-baseweb="popover"] li {
-    background: #ffffff !important;
-    color: var(--text) !important;
+    background: transparent !important;
+    color: rgba(240, 243, 250, 0.9) !important;
     font-weight: 600;
-    border-bottom: 1px solid rgba(43, 92, 127, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 div[data-baseweb="popover"] li:last-child {
@@ -471,36 +324,34 @@ div[data-baseweb="popover"] li:last-child {
 }
 
 div[data-baseweb="popover"] li:hover {
-    background: #eef6fb !important;
+    background: rgba(255, 255, 255, 0.08) !important;
 }
 
 div[data-baseweb="popover"] li[aria-selected="true"] {
-    background: rgba(24, 168, 166, 0.1) !important;
-    color: #0f7778 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
 }
 
 body > div[data-baseweb="portal"] [data-baseweb="popover"],
 body > div[data-baseweb="portal"] [role="listbox"] {
-    background: rgba(255, 255, 255, 0.98) !important;
-    backdrop-filter: blur(20px) saturate(145%);
-    -webkit-backdrop-filter: blur(20px) saturate(145%);
-    border: 1px solid var(--line) !important;
+    background: rgba(52, 54, 62, 0.74) !important;
+    backdrop-filter: blur(26px) saturate(145%);
+    -webkit-backdrop-filter: blur(26px) saturate(145%);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 18px !important;
-    box-shadow: 0 24px 44px rgba(54, 94, 130, 0.16) !important;
+    box-shadow: 0 24px 44px rgba(0, 0, 0, 0.42) !important;
     overflow: hidden !important;
 }
 
 body > div[data-baseweb="portal"] ul[role="listbox"] {
-    background: #ffffff !important;
+    background: transparent !important;
     padding: 0.4rem 0 !important;
 }
 
 body > div[data-baseweb="portal"] ul[role="listbox"] > li,
-body > div[data-baseweb="portal"] [role="option"],
-div[data-baseweb="popover"] [role="option"],
-[role="listbox"] [role="option"] {
-    background: #ffffff !important;
-    color: var(--text) !important;
+body > div[data-baseweb="portal"] [role="option"] {
+    background: transparent !important;
+    color: rgba(245, 247, 252, 0.92) !important;
     font-size: 0.98rem !important;
     font-weight: 600 !important;
     line-height: 1.1 !important;
@@ -519,32 +370,26 @@ body > div[data-baseweb="portal"] [role="option"] + [role="option"] {
 }
 
 body > div[data-baseweb="portal"] ul[role="listbox"] > li:hover,
-body > div[data-baseweb="portal"] [role="option"]:hover,
-div[data-baseweb="popover"] [role="option"]:hover,
-[role="listbox"] [role="option"]:hover {
-    background: #eef6fb !important;
-    color: #143a5a !important;
+body > div[data-baseweb="portal"] [role="option"]:hover {
+    background: rgba(255, 255, 255, 0.055) !important;
+    color: #ffffff !important;
 }
 
 body > div[data-baseweb="portal"] ul[role="listbox"] > li[aria-selected="true"],
-body > div[data-baseweb="portal"] [role="option"][aria-selected="true"],
-div[data-baseweb="popover"] [role="option"][aria-selected="true"],
-[role="listbox"] [role="option"][aria-selected="true"] {
-    background: rgba(24, 168, 166, 0.1) !important;
-    color: #0f7778 !important;
+body > div[data-baseweb="portal"] [role="option"][aria-selected="true"] {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
 }
 
-body > div[data-baseweb="portal"] [role="option"] *,
-div[data-baseweb="popover"] [role="option"] *,
-[role="listbox"] [role="option"] * {
+body > div[data-baseweb="portal"] [role="option"] * {
     color: inherit !important;
 }
 
 div[role="radiogroup"] {
     display: flex;
     gap: 0.7rem;
-    background: #ffffff;
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 999px;
     padding: 0.35rem;
     width: fit-content;
@@ -557,82 +402,52 @@ div[role="radiogroup"] label {
 }
 
 div[role="radiogroup"] label:has(input:checked) {
-    background: linear-gradient(135deg, rgba(24, 168, 166, 0.14), rgba(53, 120, 229, 0.14)) !important;
-    border: 1px solid rgba(24, 168, 166, 0.18);
+    background: linear-gradient(135deg, rgba(70, 224, 219, 0.28), rgba(66, 99, 255, 0.32)) !important;
+    border: 1px solid rgba(126, 247, 234, 0.15);
 }
 
 .stButton > button {
     width: 100%;
     min-height: 3.35rem;
     border-radius: 18px;
-    border: 1px solid rgba(53, 120, 229, 0.18);
+    border: 1px solid rgba(120, 140, 255, 0.18);
     background: linear-gradient(90deg, var(--cyan), var(--blue));
-    color: #ffffff;
+    color: #08111a;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    box-shadow: 0 18px 34px rgba(53, 120, 229, 0.22);
+    box-shadow: 0 20px 40px rgba(52, 100, 255, 0.28);
 }
 
 .stButton > button:hover {
-    border-color: rgba(24, 168, 166, 0.35);
-    color: #ffffff;
+    border-color: rgba(126, 247, 234, 0.35);
+    color: #041015;
 }
 
 [data-testid="stFileUploader"] {
-    background: linear-gradient(180deg, #ffffff, #f7fbff);
-    border: 2px dashed rgba(53, 120, 229, 0.22);
+    background: linear-gradient(180deg, rgba(23, 33, 58, 0.88), rgba(25, 32, 59, 0.82));
+    border: 2px dashed rgba(164, 180, 206, 0.26);
     border-radius: 26px;
     padding: 1rem;
 }
 
 [data-testid="stFileUploader"] section {
-    background: #ffffff !important;
-    border: 1px solid rgba(53, 120, 229, 0.12) !important;
-    border-radius: 16px !important;
     padding: 1.35rem 0.8rem;
-}
-
-[data-testid="stFileUploader"] button {
-    background: #eef6fb !important;
-    border: 1px solid rgba(53, 120, 229, 0.18) !important;
-    color: #143a5a !important;
-    box-shadow: none !important;
-}
-
-[data-testid="stFileUploader"] button *,
-[data-testid="stFileUploader"] svg {
-    color: #143a5a !important;
 }
 
 [data-testid="stFileUploader"] small,
 [data-testid="stFileUploader"] span,
 [data-testid="stFileUploader"] label {
-    color: #51657c !important;
+    color: var(--muted) !important;
 }
 
 [data-testid="stImage"] img {
     border-radius: 20px;
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 [data-testid="stVerticalBlock"] > [style*="flex-direction: column;"] > [data-testid="stVerticalBlockBorderWrapper"] {
     width: 100%;
-}
-
-[data-testid="column"] {
-    padding-left: 0.45rem;
-    padding-right: 0.45rem;
-}
-
-[data-testid="column"]:first-child {
-    padding-left: 0;
-    padding-right: 0.85rem;
-}
-
-[data-testid="column"]:last-child {
-    padding-right: 0;
-    padding-left: 0.85rem;
 }
 
 .footer-note {
@@ -649,11 +464,6 @@ div[role="radiogroup"] label:has(input:checked) {
 
     .brand-copy h1 {
         font-size: 1.6rem;
-    }
-
-    .data-row {
-        grid-template-columns: 1fr;
-        gap: 0.3rem;
     }
 }
 </style>
@@ -740,162 +550,6 @@ def parse_list_field(value, negative_values):
     if not cleaned or cleaned.lower() in negative_values:
         return []
     return [item.strip() for item in cleaned.split(",") if item.strip()]
-
-
-def safe_text(value, fallback="Not available"):
-    text = str(value or "").strip()
-    return html.escape(text or fallback)
-
-
-def unique_items(items, key_builder):
-    unique = []
-    seen = set()
-    for item in items:
-        key = key_builder(item)
-        if key in seen:
-            continue
-        seen.add(key)
-        unique.append(item)
-    return unique
-
-
-def render_report_panel(title, count, body_html):
-    return (
-        '<div class="report-panel">'
-        '<div class="report-header">'
-        f"<h3>{safe_text(title)}</h3>"
-        f'<span class="count-pill">{count}</span>'
-        "</div>"
-        f'<div class="report-body">{body_html}</div>'
-        "</div>"
-    )
-
-
-def build_drug_rows(drugs):
-    if not drugs:
-        return '<div class="empty-state">No drugs were extracted from the submitted text.</div>'
-
-    rows = []
-    for drug in drugs:
-        name = drug.get("name") or drug.get("normalized_name")
-        dosage = safe_text(drug.get("dosage") or drug.get("dosage_text"), "Dosage not detected")
-        frequency = safe_text(drug.get("frequency") or drug.get("frequency_text"), "Frequency not detected")
-        rows.append(
-            '<div class="data-row">'
-            f'<div class="data-title">{safe_text(name, "Unknown Drug")}</div>'
-            f'<div class="data-subtitle">{dosage}<br>{frequency}</div>'
-            "</div>"
-        )
-    return "\n".join(rows)
-
-
-def build_dosage_items(alerts):
-    if not alerts:
-        return '<div class="empty-state">No dosage advisories were returned.</div>'
-
-    items = []
-    for alert in alerts:
-        issue = safe_text(alert.get("issue"), "Dosage guidance available")
-        recommended = alert.get("recommended_dosage") or alert.get("recommendation")
-        parsed = alert.get("parsed_mg_per_day")
-        limits = ""
-        if parsed is not None:
-            limits = (
-                f'<div class="data-note">Parsed: {safe_text(parsed)} mg/day; '
-                f'Range: {safe_text(alert.get("min_mg_per_day"))}-'
-                f'{safe_text(alert.get("max_mg_per_day"))} mg/day</div>'
-            )
-        recommendation = (
-            f'<div class="data-note">Recommended: {safe_text(recommended)}</div>'
-            if recommended
-            else ""
-        )
-        items.append(
-            '<div class="status-item info">'
-            f'<div class="status-title">{safe_text(alert.get("drug"), "Unknown Drug")}</div>'
-            f'<div class="data-note">{issue}</div>'
-            f"{limits}"
-            f"{recommendation}"
-            "</div>"
-        )
-    return f'<div class="status-list">{"".join(items)}</div>'
-
-
-def build_interaction_items(interactions):
-    if not interactions:
-        return '<div class="empty-state">No known interactions found in the current rules.</div>'
-
-    items = []
-    for interaction in interactions:
-        title = (
-            f'{safe_text(interaction.get("drug_a"), "Drug A")} + '
-            f'{safe_text(interaction.get("drug_b"), "Drug B")}'
-        )
-        description = interaction.get("description") or interaction.get("effect")
-        items.append(
-            '<div class="status-item warning">'
-            f'<div class="status-title">{title}</div>'
-            f'<div class="data-note">{safe_text(description, "Potential interaction")}</div>'
-            "</div>"
-        )
-    return f'<div class="status-list">{"".join(items)}</div>'
-
-
-def build_allergy_items(alerts):
-    if not alerts:
-        return '<div class="empty-state">No allergy conflicts were returned.</div>'
-
-    items = []
-    for alert in alerts:
-        items.append(
-            '<div class="status-item warning">'
-            f'<div class="status-title">{safe_text(alert.get("drug"), "Unknown Drug")}</div>'
-            f'<div class="data-note">Allergen: {safe_text(alert.get("allergen"), "UNKNOWN")}</div>'
-            f'<div class="data-note">{safe_text(alert.get("recommendation"), "UNKNOWN")}</div>'
-            "</div>"
-        )
-    return f'<div class="status-list">{"".join(items)}</div>'
-
-
-def build_unknown_items(items):
-    if not items:
-        return '<div class="empty-state">No unknown dataset gaps were returned.</div>'
-
-    cards = []
-    for item in items:
-        cards.append(
-            '<div class="status-item warning">'
-            f'<div class="status-title">{safe_text(item.get("type"), "UNKNOWN")}: {safe_text(item.get("value"), "UNKNOWN")}</div>'
-            f'<div class="data-note">{safe_text(item.get("reason"), "UNKNOWN")}</div>'
-            f'<div class="data-note">Source: {safe_text(item.get("source"), "UNKNOWN")}</div>'
-            "</div>"
-        )
-    return f'<div class="status-list">{"".join(cards)}</div>'
-
-
-def build_alternative_cards(alternatives):
-    if not alternatives:
-        return '<div class="empty-state">No alternative suggestions were generated.</div>'
-
-    cards = []
-    for suggestion in alternatives:
-        original = safe_text(suggestion.get("original_drug"), "Unknown")
-        suggested = safe_text(suggestion.get("suggested_drug"), "N/A")
-        reason = safe_text(suggestion.get("reason"), "Reason not provided")
-        cards.append(
-            '<div class="alternative-card">'
-            '<div class="alternative-route">'
-            f"<span>{original}</span>"
-            '<span class="route-arrow">-></span>'
-            f"<span>{suggested}</span>"
-            "</div>"
-            f'<div class="alternative-reason">{reason}</div>'
-            "</div>"
-        )
-
-    if not cards:
-        return '<div class="empty-state">No alternative suggestions were generated.</div>'
-    return f'<div class="alternative-grid">{"".join(cards)}</div>'
 
 
 def analyze_prescription_api(text, patient_context):
@@ -1100,22 +754,25 @@ if st.session_state.get("analysis_error"):
 
 result = st.session_state.get("analysis_result")
 if result:
-    safety = result.get("safety")
-    if safety is None:
-        safety = "safe" if result.get("is_safe", False) else "caution"
-    banner_class = "result-safe" if safety == "safe" else "result-alert"
-    banner_title = {
-        "safe": "Prescription appears clear for the current dataset rules.",
-        "caution": "Prescription needs review before use.",
-        "unsafe": "Prescription is unsafe under the current dataset rules.",
-        "unknown": "Prescription cannot be fully classified from available data.",
-    }.get(safety, "Prescription needs review before use.")
-    banner_body = {
-        "safe": "No interaction, dosage, allergy, or dataset gaps were returned.",
-        "caution": "Moderate issues, dosage issues, or allergy alerts were returned.",
-        "unsafe": "At least one high-severity issue was returned from the datasets.",
-        "unknown": "One or more required data points are missing, so the system did not guess.",
-    }.get(safety, "Review the structured results below.")
+    safety = result.get("safety", "unknown")
+    
+    # Map safety statuses
+    if safety == "safe":
+        banner_class = "result-safe"
+        banner_title = "Prescription appears clear for the current rule set."
+        banner_body = "No interaction, dosage, allergy, or dataset gaps were returned."
+    elif safety == "caution":
+        banner_class = "result-caution"
+        banner_title = "Prescription needs review before use."
+        banner_body = "One or more moderate interactions, dosage advisories, or allergy alerts were returned."
+    elif safety == "unsafe":
+        banner_class = "result-unsafe"
+        banner_title = "Prescription is unsafe under the current rule set."
+        banner_body = "At least one high-severity issue was returned from the datasets."
+    else:
+        banner_class = "result-alert"
+        banner_title = "Prescription cannot be fully classified from available data."
+        banner_body = "One or more required dataset references are missing."
 
     st.markdown(
         f"""
@@ -1127,89 +784,101 @@ if result:
         unsafe_allow_html=True,
     )
 
-    extracted_drugs = unique_items(
-        result.get("normalized_drugs") or result.get("extracted_drugs", []),
-        lambda item: (
-            str(item.get("normalized_name") or item.get("name", "")).strip().lower(),
-            str(item.get("dosage_text") or item.get("dosage", "")).strip().lower(),
-            str(item.get("frequency_text") or item.get("frequency", "")).strip().lower(),
-        ),
-    )
-    dosage_alerts = unique_items(
-        result.get("dosage_issues") or result.get("dosage_alerts", []),
-        lambda item: (
-            str(item.get("drug", "")).strip().lower(),
-            str(item.get("issue", "")).strip().lower(),
-            str(item.get("recommendation") or item.get("recommended_dosage", "")).strip().lower(),
-        ),
-    )
-    interactions = unique_items(
-        result.get("interactions", []),
-        lambda item: tuple(
-            sorted(
-                [
-                    str(item.get("drug_a", "")).strip().lower(),
-                    str(item.get("drug_b", "")).strip().lower(),
-                ]
-            )
-            + [str(item.get("effect") or item.get("description", "")).strip().lower()]
-        ),
-    )
-    allergy_alerts = unique_items(
-        result.get("allergy_alerts", []),
-        lambda item: (
-            str(item.get("allergen", "")).strip().lower(),
-            str(item.get("drug", "")).strip().lower(),
-        ),
-    )
-    alternatives = unique_items(
-        result.get("alternatives", []),
-        lambda item: (
-            str(item.get("original_drug", "")).strip().lower(),
-            str(item.get("suggested_drug", "")).strip().lower(),
-        ),
-    )
+    result_col1, result_col2 = st.columns(2, gap="large")
 
-    top_left, top_right = st.columns(2, gap="large")
-    with top_left:
-        st.markdown(
-            render_report_panel("Extracted Drugs", len(extracted_drugs), build_drug_rows(extracted_drugs)),
-            unsafe_allow_html=True,
-        )
-    with top_right:
-        st.markdown(
-            render_report_panel("Interaction Signals", len(interactions), build_interaction_items(interactions)),
-            unsafe_allow_html=True,
-        )
+    with result_col1:
+        st.markdown('<div class="mini-title">Extracted Drugs</div>', unsafe_allow_html=True)
+        normalized_drugs = result.get("normalized_drugs", [])
+        if normalized_drugs:
+            for drug in normalized_drugs:
+                drug_name = drug.get("normalized_name", "Unknown Drug")
+                dosage = drug.get("dosage_text") or "Dosage not detected"
+                frequency = drug.get("frequency_text") or "Frequency not detected"
+                st.markdown(f"**{drug_name}**")
+                st.caption(f"{dosage} • {frequency}")
+        else:
+            st.caption("No drugs were extracted from the submitted text.")
 
-    bottom_left, bottom_right = st.columns([0.9, 1.1], gap="large")
-    with bottom_left:
-        st.markdown(
-            render_report_panel("Dosage Guidance", len(dosage_alerts), build_dosage_items(dosage_alerts)),
-            unsafe_allow_html=True,
-        )
-    with bottom_right:
-        st.markdown(
-            render_report_panel(
-                "Alternative Suggestions",
-                len(alternatives),
-                build_alternative_cards(alternatives),
-            ),
-            unsafe_allow_html=True,
-        )
+        st.markdown('<div class="mini-title">Dosage Guidance</div>', unsafe_allow_html=True)
+        dosage_issues = result.get("dosage_issues", [])
+        if dosage_issues:
+            for issue in dosage_issues:
+                drug_name = issue.get("drug", "Unknown Drug")
+                issue_type = issue.get("issue", "Dosage guidance available")
+                rec = issue.get("recommendation", "")
+                line = f"{issue_type.title()}"
+                if rec:
+                    line = f"{line} - {rec}"
+                st.info(f"**{drug_name}**: {line}")
+        else:
+            st.caption("No dosage advisories were returned.")
 
-    detail_left, detail_right = st.columns(2, gap="large")
-    with detail_left:
-        st.markdown(
-            render_report_panel("Allergy Alerts", len(allergy_alerts), build_allergy_items(allergy_alerts)),
-            unsafe_allow_html=True,
-        )
-    with detail_right:
+        st.markdown('<div class="mini-title">Allergy Alerts</div>', unsafe_allow_html=True)
+        allergy_alerts = result.get("allergy_alerts", [])
+        if allergy_alerts:
+            for alert in allergy_alerts:
+                allergen = alert.get("allergen", "Unknown allergen").title()
+                drug_name = alert.get("drug", "Unknown drug")
+                rec = alert.get("recommendation", "Avoid exposure.")
+                st.error(f"**Allergy:** {allergen} vs **{drug_name}** - {rec}")
+        else:
+            st.caption("No allergy alerts were triggered.")
+
+    with result_col2:
+        st.markdown('<div class="mini-title">Interaction Signals</div>', unsafe_allow_html=True)
+        interactions = result.get("interactions", [])
+        if interactions:
+            for interaction in interactions:
+                drug_a = interaction.get('drug_a', 'Drug A')
+                drug_b = interaction.get('drug_b', 'Drug B')
+                effect = interaction.get('effect', 'Potential interaction')
+                mechanism = interaction.get('mechanism')
+                rec = interaction.get('recommendation')
+                
+                desc_parts = [effect.strip()]
+                if desc_parts[0] and not desc_parts[0].endswith('.'):
+                    desc_parts[0] += '.'
+                
+                if mechanism:
+                    desc_parts.append(f"Mechanism: {mechanism.strip()}")
+                    if not desc_parts[-1].endswith('.'):
+                        desc_parts[-1] += '.'
+                if rec:
+                    desc_parts.append(f"Recommendation: {rec.strip()}")
+                    if not desc_parts[-1].endswith('.'):
+                        desc_parts[-1] += '.'
+                
+                description = " ".join(desc_parts)
+                st.warning(f"**{drug_a} + {drug_b}**: {description}")
+        else:
+            st.success("No known interactions found in the current rules.")
+
+        st.markdown('<div class="mini-title">Alternative Suggestions</div>', unsafe_allow_html=True)
+        alternatives = result.get("alternatives", [])
+        if alternatives:
+            for suggestion in alternatives:
+                st.markdown(
+                    f"**{suggestion.get('original_drug', 'Unknown')}** → "
+                    f"**{suggestion.get('suggested_drug', 'N/A')}**"
+                )
+                st.caption(suggestion.get("reason", ""))
+        else:
+            st.caption("No alternative suggestions were generated.")
+
+        st.markdown('<div class="mini-title">Unknown Data</div>', unsafe_allow_html=True)
         unknowns = result.get("unknowns", [])
-        st.markdown(
-            render_report_panel("Unknown Data", len(unknowns), build_unknown_items(unknowns)),
-            unsafe_allow_html=True,
-        )
+        if unknowns:
+            for unknown in unknowns:
+                item_type = unknown.get("type", "Item").title()
+                val = unknown.get("value", "N/A")
+                reason = unknown.get("reason", "Missing dataset reference.")
+                st.info(f"**{item_type}** ({val}): {reason}")
+        else:
+            st.caption("No unknown data items were generated.")
+
+    st.markdown('<div style="height: 1.5rem;"></div>', unsafe_allow_html=True)
+    if st.checkbox("Show Raw API Response"):
+        st.json(result)
 
 
 st.markdown(

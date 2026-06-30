@@ -1,37 +1,32 @@
 {
   "atorvastatin|clarithromycin": {
     "severity": "high",
-    "mechanism": "Clarithromycin may increase atorvastatin exposure through CYP3A4 inhibition.",
-    "effect": "Increased risk of statin-associated muscle toxicity.",
-    "recommendation": "Avoid combination or use a non-CYP3A4 statin alternative if clinically appropriate.",
-    "source_id": "sample-interaction-001"
+    "mechanism": "CYP3A4 inhibition",
+    "effect": "increased statin levels leading to muscle toxicity",
+    "recommendation": "avoid combination"
   },
   "simvastatin|clarithromycin": {
     "severity": "high",
-    "mechanism": "Clarithromycin may increase simvastatin exposure through CYP3A4 inhibition.",
-    "effect": "Increased risk of statin-associated muscle toxicity.",
-    "recommendation": "Avoid combination.",
-    "source_id": "sample-interaction-002"
-  },
-  "aspirin|ibuprofen": {
-    "severity": "moderate",
-    "mechanism": "Concurrent NSAID exposure may increase gastrointestinal adverse effects.",
-    "effect": "Increased gastrointestinal bleeding risk.",
-    "recommendation": "Use together only with clinician review.",
-    "source_id": "sample-interaction-003"
+    "mechanism": "CYP3A4 inhibition",
+    "effect": "risk of rhabdomyolysis",
+    "recommendation": "contraindicated"
   },
   "warfarin|ibuprofen": {
     "severity": "high",
-    "mechanism": "Anticoagulant plus NSAID exposure may increase bleeding risk.",
-    "effect": "Increased serious bleeding risk.",
-    "recommendation": "Avoid combination unless specifically directed and monitored.",
-    "source_id": "sample-interaction-004"
+    "mechanism": "platelet inhibition and anticoagulation",
+    "effect": "increased bleeding risk",
+    "recommendation": "avoid combination"
   },
-  "lisinopril|ibuprofen": {
+  "aspirin|ibuprofen": {
     "severity": "moderate",
-    "mechanism": "NSAIDs may reduce antihypertensive effect and affect renal perfusion.",
-    "effect": "Reduced blood pressure control and possible renal function impact.",
-    "recommendation": "Monitor blood pressure and renal function.",
-    "source_id": "sample-interaction-005"
+    "mechanism": "competitive COX inhibition",
+    "effect": "reduced cardioprotective effect",
+    "recommendation": "monitor or adjust timing"
+  },
+  "metformin|contrast dye": {
+    "severity": "high",
+    "mechanism": "renal impairment risk",
+    "effect": "lactic acidosis",
+    "recommendation": "temporarily discontinue metformin"
   }
 }

@@ -1,20 +1,4 @@
 {
-  "penicillin": {
-    "drugs": ["amoxicillin"],
-    "severity": "high",
-    "recommendation": "Avoid listed penicillin-class drug.",
-    "source_id": "sample-allergy-001"
-  },
-  "nsaid": {
-    "drugs": ["ibuprofen", "aspirin"],
-    "severity": "high",
-    "recommendation": "Avoid listed NSAID exposure.",
-    "source_id": "sample-allergy-002"
-  },
-  "statin": {
-    "drugs": ["atorvastatin", "simvastatin", "pravastatin", "rosuvastatin"],
-    "severity": "moderate",
-    "recommendation": "Review statin allergy history before use.",
-    "source_id": "sample-allergy-003"
-  }
+  "penicillin": ["amoxicillin", "ampicillin"],
+  "nsaid": ["ibuprofen", "aspirin"]
 }

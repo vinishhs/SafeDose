@@ -21,15 +21,18 @@ def parse_mg_per_day(dosage_text: Optional[str], frequency_text: Optional[str]) 
     if not dosage_text:
         return None
 
-    dosage_match = re.search(r"(\d+(?:\.\d+)?)\s*mg", dosage_text, flags=re.IGNORECASE)
+    combined_text = f"{dosage_text or ''} {frequency_text or ''}".strip()
+    dosage_match = re.search(r"(\d+(?:\.\d+)?)\s*mg", combined_text, flags=re.IGNORECASE)
     if not dosage_match:
         return None
 
     dose_mg = float(dosage_match.group(1))
-    if not frequency_text:
-        return None
-
-    frequency = frequency_text.strip().lower()
+    frequency_match = re.search(
+        r"(once daily|twice daily|three times daily|thrice daily|daily|bid|tid|qid)",
+        combined_text,
+        flags=re.IGNORECASE,
+    )
+    frequency = frequency_match.group(1).strip().lower() if frequency_match else "once daily"
     multiplier = FREQUENCY_MULTIPLIERS.get(frequency)
     if multiplier is None:
         return None
