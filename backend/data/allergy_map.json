@@ -1,4 +1,22 @@
 {
-  "penicillin": ["amoxicillin", "ampicillin"],
-  "nsaid": ["ibuprofen", "aspirin"]
+  "penicillin": {
+    "drugs": [
+      "amoxicillin",
+      "ampicillin"
+    ],
+    "severity": "high",
+    "recommendation": "Avoid penicillin antibiotics due to allergy history.",
+    "source_id": "allergy_map.json"
+  },
+  "nsaid": {
+    "drugs": [
+      "ibuprofen",
+      "aspirin",
+      "naproxen",
+      "diclofenac"
+    ],
+    "severity": "high",
+    "recommendation": "Avoid NSAID medications due to allergy history.",
+    "source_id": "allergy_map.json"
+  }
 }
