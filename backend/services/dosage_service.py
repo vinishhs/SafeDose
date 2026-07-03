@@ -101,6 +101,12 @@ def check_dosage(drugs: List[NormalizedDrug], age_category: str) -> tuple[List[D
     rules = load_dosage_rules()
 
     for drug in drugs:
+        # Skip dosage parsing for current medications lacking dosage/frequency info
+        if drug.source == "current_medications" and (not drug.dosage_text or not drug.frequency_text):
+            drug.mg_per_day = None
+            # Do not emit a dosage_parse unknown; continue to next drug for interaction/allergy checks
+            continue
+
         drug_rules = rules.get(drug.normalized_name)
         if not isinstance(drug_rules, dict):
             unknowns.append(
