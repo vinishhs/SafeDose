@@ -1,6 +1,40 @@
 {
-  "atorvastatin": ["pravastatin", "rosuvastatin"],
-  "clarithromycin": ["azithromycin", "doxycycline"],
-  "ibuprofen": ["paracetamol"],
-  "warfarin": ["apixaban"]
+  "atorvastatin": [
+    {
+      "drug": "pravastatin",
+      "reason": "Lower CYP3A4 metabolism and reduced interaction risk with macrolide antibiotics.",
+      "source_id": "alternatives.json"
+    },
+    {
+      "drug": "rosuvastatin",
+      "reason": "Less dependent on CYP3A4 metabolism and lower interaction potential.",
+      "source_id": "alternatives.json"
+    }
+  ],
+  "clarithromycin": [
+    {
+      "drug": "azithromycin",
+      "reason": "Lower CYP3A4 inhibition and reduced risk of statin interactions.",
+      "source_id": "alternatives.json"
+    },
+    {
+      "drug": "doxycycline",
+      "reason": "Alternative antibiotic option when macrolide interactions are a concern.",
+      "source_id": "alternatives.json"
+    }
+  ],
+  "ibuprofen": [
+    {
+      "drug": "paracetamol",
+      "reason": "Lower gastrointestinal bleeding risk and suitable when NSAID use is undesirable.",
+      "source_id": "alternatives.json"
+    }
+  ],
+  "warfarin": [
+    {
+      "drug": "apixaban",
+      "reason": "Direct oral anticoagulant with fewer dietary interactions and no routine INR monitoring requirement.",
+      "source_id": "alternatives.json"
+    }
+  ]
 }

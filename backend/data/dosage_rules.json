@@ -64,5 +64,107 @@
       "underdose_severity": "moderate",
       "source_id": "dosage_rules.json"
     }
+  },
+  "warfarin": {
+    "adult": {
+      "min": 1,
+      "max": 10,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Standard adult dosage ranges from 1mg to 10mg daily based on INR monitoring."
+    },
+    "elderly": {
+      "min": 1,
+      "max": 5,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Elderly patients are more sensitive to warfarin; lower doses (1mg to 5mg daily) are recommended."
+    }
+  },
+  "ampicillin": {
+    "adult": {
+      "min": 1000,
+      "max": 4000,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Standard adult oral dosage is 1000mg to 4000mg daily in divided doses."
+    },
+    "child": {
+      "min": 250,
+      "max": 2000,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Standard child dosage is 250mg to 2000mg daily depending on weight."
+    }
+  },
+  "metformin": {
+    "adult": {
+      "min": 500,
+      "max": 2550,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Standard adult daily dosage ranges from 500mg to 2550mg."
+    },
+    "elderly": {
+      "min": 500,
+      "max": 1000,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Elderly patients require renal function assessment; maximum recommended dose is 1000mg daily."
+    }
+  },
+  "telmisartan": {
+    "adult": {
+      "min": 20,
+      "max": 80,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Standard adult daily dosage ranges from 20mg to 80mg once daily."
+    }
+  },
+  "losartan": {
+    "adult": {
+      "min": 25,
+      "max": 100,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Standard adult daily dosage ranges from 25mg to 100mg once daily or in divided doses."
+    }
+  },
+  "aspirin": {
+    "adult": {
+      "min": 75,
+      "max": 325,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Standard daily dosage for cardioprotection ranges from 75mg to 325mg."
+    }
+  },
+  "levothyroxine": {
+    "adult": {
+      "min": 0.025,
+      "max": 0.2,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Levothyroxine dosing ranges from 0.025mg (25mcg) to 0.2mg (200mcg) daily based on TSH monitoring."
+    },
+    "elderly": {
+      "min": 0.0125,
+      "max": 0.15,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json",
+      "recommendation": "Elderly patients should start at lower doses (0.0125mg to 0.025mg daily) to avoid adverse cardiac effects."
+    }
   }
 }

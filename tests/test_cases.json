@@ -121,7 +121,7 @@
     "expected": {
       "safety": "unsafe",
       "interaction_count": 1,
-      "dosage_issue_count": 0,
+      "dosage_issue_count": 1,
       "allergy_count": 0
     }
   },

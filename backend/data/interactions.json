@@ -1,32 +1,170 @@
 {
-  "atorvastatin|clarithromycin": {
+  "alcohol|metformin": {
     "severity": "high",
-    "mechanism": "CYP3A4 inhibition",
-    "effect": "increased statin levels leading to muscle toxicity",
-    "recommendation": "avoid combination"
+    "mechanism": "additive effect on lactate metabolism and inhibition of gluconeogenesis by alcohol",
+    "effect": "increased risk of lactic acidosis and hypoglycemia",
+    "recommendation": "avoid excessive alcohol consumption while taking metformin",
+    "source_id": "interactions.json"
   },
-  "simvastatin|clarithromycin": {
+  "apixaban|aspirin": {
     "severity": "high",
-    "mechanism": "CYP3A4 inhibition",
-    "effect": "risk of rhabdomyolysis",
-    "recommendation": "contraindicated"
+    "mechanism": "additive antiplatelet and anticoagulant effects",
+    "effect": "significantly increased risk of major gastrointestinal and systemic bleeding",
+    "recommendation": "avoid combination unless specifically indicated; monitor for signs of bleeding",
+    "source_id": "interactions.json"
   },
-  "warfarin|ibuprofen": {
+  "apixaban|ibuprofen": {
     "severity": "high",
-    "mechanism": "platelet inhibition and anticoagulation",
-    "effect": "increased bleeding risk",
-    "recommendation": "avoid combination"
+    "mechanism": "additive anticoagulant effect and NSAID-induced platelet dysfunction with gastric mucosal injury",
+    "effect": "significantly increased risk of gastrointestinal bleeding",
+    "recommendation": "avoid concurrent use of NSAIDs; use paracetamol for pain relief if appropriate",
+    "source_id": "interactions.json"
   },
   "aspirin|ibuprofen": {
     "severity": "moderate",
-    "mechanism": "competitive COX inhibition",
-    "effect": "reduced cardioprotective effect",
-    "recommendation": "monitor or adjust timing"
+    "mechanism": "competitive COX-1 inhibition by ibuprofen blocks aspirin binding",
+    "effect": "reduced cardioprotective effect of low-dose aspirin and increased GI side effects",
+    "recommendation": "take aspirin at least 30 minutes before or 8 hours after ibuprofen",
+    "source_id": "interactions.json"
+  },
+  "aspirin|rivaroxaban": {
+    "severity": "high",
+    "mechanism": "additive antiplatelet and anticoagulant effects",
+    "effect": "significantly increased risk of major gastrointestinal and systemic bleeding",
+    "recommendation": "avoid combination unless specifically indicated; monitor for bleeding",
+    "source_id": "interactions.json"
+  },
+  "aspirin|warfarin": {
+    "severity": "high",
+    "mechanism": "additive antiplatelet effect, anticoagulant effect, and direct gastric mucosal injury",
+    "effect": "major increase in gastrointestinal and systemic bleeding risk",
+    "recommendation": "avoid concurrent use unless clinically indicated (e.g. mechanical valve); monitor INR closely",
+    "source_id": "interactions.json"
+  },
+  "atorvastatin|clarithromycin": {
+    "severity": "high",
+    "mechanism": "CYP3A4 inhibition by clarithromycin leading to increased atorvastatin concentration",
+    "effect": "increased statin levels leading to muscle toxicity and potential rhabdomyolysis",
+    "recommendation": "avoid combination; temporarily hold atorvastatin or use alternative antibiotic",
+    "source_id": "interactions.json"
+  },
+  "calcium|levothyroxine": {
+    "severity": "moderate",
+    "mechanism": "calcium binds levothyroxine in the gastrointestinal tract, reducing its absorption",
+    "effect": "reduced efficacy of levothyroxine, leading to subtherapeutic thyroid hormone levels",
+    "recommendation": "separate administration times of calcium and levothyroxine by at least 4 hours",
+    "source_id": "interactions.json"
+  },
+  "clarithromycin|warfarin": {
+    "severity": "high",
+    "mechanism": "CYP3A4 inhibition and disruption of gut flora by clarithromycin",
+    "effect": "significantly increased warfarin levels, elevated INR, and high bleeding risk",
+    "recommendation": "avoid concurrent use; use alternative antibiotic or monitor INR daily",
+    "source_id": "interactions.json"
+  },
+  "ciprofloxacin|warfarin": {
+    "severity": "high",
+    "mechanism": "alteration of gut flora and potential inhibition of CYP1A2/CYP3A4 by ciprofloxacin",
+    "effect": "increased anticoagulant effect of warfarin and elevated bleeding risk",
+    "recommendation": "monitor INR closely and adjust warfarin dose if necessary",
+    "source_id": "interactions.json"
+  },
+  "clopidogrel|omeprazole": {
+    "severity": "high",
+    "mechanism": "CYP2C19 inhibition by omeprazole reduces the activation of clopidogrel",
+    "effect": "reduced antiplatelet efficacy of clopidogrel and increased risk of cardiovascular events",
+    "recommendation": "avoid concurrent use; consider using pantoprazole or another PPI that does not inhibit CYP2C19",
+    "source_id": "interactions.json"
+  },
+  "diclofenac|ibuprofen": {
+    "severity": "moderate",
+    "mechanism": "additive pharmacodynamic COX inhibition",
+    "effect": "increased risk of gastrointestinal ulceration, bleeding, and renal impairment",
+    "recommendation": "avoid dual NSAID therapy; use alternative non-NSAID analgesics if possible",
+    "source_id": "interactions.json"
+  },
+  "diclofenac|losartan": {
+    "severity": "moderate",
+    "mechanism": "NSAID-induced prostaglandin inhibition decreases renal perfusion and antagonizes vasodilatory effects",
+    "effect": "reduced antihypertensive efficacy and increased risk of acute kidney injury",
+    "recommendation": "monitor blood pressure and renal function; ensure patient is hydrated",
+    "source_id": "interactions.json"
+  },
+  "diclofenac|telmisartan": {
+    "severity": "moderate",
+    "mechanism": "NSAID-induced prostaglandin inhibition decreases renal perfusion and antagonizes vasodilatory effects",
+    "effect": "reduced antihypertensive efficacy and increased risk of acute kidney injury",
+    "recommendation": "monitor blood pressure and renal function; ensure patient is hydrated",
+    "source_id": "interactions.json"
+  },
+  "doxycycline|warfarin": {
+    "severity": "moderate",
+    "mechanism": "doxycycline decreases vitamin K-producing gut flora and may inhibit warfarin metabolism",
+    "effect": "increased INR and bleeding risk",
+    "recommendation": "monitor INR during co-administration and adjust warfarin dose as needed",
+    "source_id": "interactions.json"
+  },
+  "ibuprofen|losartan": {
+    "severity": "moderate",
+    "mechanism": "NSAID-induced prostaglandin inhibition decreases renal perfusion and antagonizes vasodilatory effects",
+    "effect": "reduced antihypertensive efficacy and increased risk of acute kidney injury",
+    "recommendation": "monitor blood pressure and renal function; ensure patient is hydrated",
+    "source_id": "interactions.json"
+  },
+  "ibuprofen|rivaroxaban": {
+    "severity": "high",
+    "mechanism": "NSAID-induced platelet dysfunction and gastric mucosal damage combined with anticoagulation",
+    "effect": "significantly increased risk of gastrointestinal bleeding",
+    "recommendation": "avoid concurrent use of NSAIDs; use paracetamol for pain relief if appropriate",
+    "source_id": "interactions.json"
+  },
+  "ibuprofen|telmisartan": {
+    "severity": "moderate",
+    "mechanism": "NSAID-induced prostaglandin inhibition decreases renal perfusion and antagonizes vasodilatory effects",
+    "effect": "reduced antihypertensive efficacy and increased risk of acute kidney injury",
+    "recommendation": "monitor blood pressure and renal function; ensure patient is hydrated",
+    "source_id": "interactions.json"
+  },
+  "iron|levothyroxine": {
+    "severity": "moderate",
+    "mechanism": "iron supplements form insoluble complexes with levothyroxine in the gut, reducing absorption",
+    "effect": "reduced absorption of levothyroxine, leading to hypothyroidism symptoms",
+    "recommendation": "separate administration times of iron and levothyroxine by at least 4 hours",
+    "source_id": "interactions.json"
   },
   "metformin|contrast dye": {
     "severity": "high",
-    "mechanism": "renal impairment risk",
-    "effect": "lactic acidosis",
-    "recommendation": "temporarily discontinue metformin"
+    "mechanism": "contrast dye induced renal impairment increases metformin levels",
+    "effect": "increased risk of metformin-induced lactic acidosis",
+    "recommendation": "temporarily discontinue metformin prior to or at the time of the procedure and withhold for 48 hours after",
+    "source_id": "interactions.json"
+  },
+  "metronidazole|warfarin": {
+    "severity": "high",
+    "mechanism": "CYP2C9 inhibition by metronidazole decreases S-warfarin metabolism",
+    "effect": "significantly increased warfarin levels, elevated INR, and severe bleeding risk",
+    "recommendation": "avoid concurrent use if possible; if used together, reduce warfarin dose and monitor INR closely",
+    "source_id": "interactions.json"
+  },
+  "paracetamol|warfarin": {
+    "severity": "moderate",
+    "mechanism": "prolonged high-dose paracetamol may inhibit warfarin metabolism or affect clotting factor synthesis",
+    "effect": "gradual increase in INR and bleeding risk with prolonged use of high-dose paracetamol",
+    "recommendation": "limit paracetamol dose and monitor INR closely for patients on chronic therapy",
+    "source_id": "interactions.json"
+  },
+  "simvastatin|clarithromycin": {
+    "severity": "high",
+    "mechanism": "CYP3A4 inhibition by clarithromycin leading to increased simvastatin concentration",
+    "effect": "high risk of myopathy and rhabdomyolysis",
+    "recommendation": "contraindicated; temporarily hold simvastatin or use alternative antibiotic",
+    "source_id": "interactions.json"
+  },
+  "warfarin|ibuprofen": {
+    "severity": "high",
+    "mechanism": "platelet inhibition by ibuprofen and anticoagulation by warfarin",
+    "effect": "increased gastrointestinal and systemic bleeding risk",
+    "recommendation": "avoid combination; use alternative analgesics like paracetamol",
+    "source_id": "interactions.json"
   }
 }

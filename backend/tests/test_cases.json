@@ -193,6 +193,31 @@
             "allergies": [
                 "nsaid"
             ]
+        },
+        {
+            "name": "Dolo 650 Brand Mapping",
+            "prescription": "prescribe dolo 650 twice daily",
+            "allergies": []
+        },
+        {
+            "name": "Crocin Brand Mapping",
+            "prescription": "prescribe crocin 500mg",
+            "allergies": []
+        },
+        {
+            "name": "Augmentin Brand Mapping",
+            "prescription": "prescribe augmentin 625mg twice daily",
+            "allergies": []
+        },
+        {
+            "name": "Azee Brand Mapping",
+            "prescription": "prescribe azee 500mg daily",
+            "allergies": []
+        },
+        {
+            "name": "Glycomet Brand Mapping",
+            "prescription": "prescribe glycomet 500mg twice daily",
+            "allergies": []
         }
     ]
 ]
