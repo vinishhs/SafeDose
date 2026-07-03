@@ -1,0 +1,317 @@
+[
+  {
+    "name": "Paracetamol Safe Dose",
+    "prescription": "prescribe paracetamol 500mg twice daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0,
+      "allergy_count": 0,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Paracetamol Overdose (1500mg x4)",
+    "prescription": "prescribe paracetamol 1500mg four times daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "dosage_issue_count": 1,
+      "allergy_count": 0,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Paracetamol Max Dose Boundary (1g x4 = 4000mg)",
+    "prescription": "prescribe paracetamol 1g four times daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0,
+      "allergy_count": 0,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Paracetamol q6h (650mg x4 = 2600mg)",
+    "prescription": "prescribe paracetamol 650mg q6h",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0,
+      "allergy_count": 0,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Amoxicillin TID (500mg x3 = 1500mg)",
+    "prescription": "prescribe amoxicillin 500mg tid",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0,
+      "allergy_count": 0,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Clarithromycin BID (500mg x2 = 1000mg)",
+    "prescription": "prescribe clarithromycin 500mg bid",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0,
+      "allergy_count": 0,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Ibuprofen Every 6 Hours — Overdose (400mg x4 = 1600mg)",
+    "prescription": "prescribe ibuprofen 400mg every 6 hours",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "dosage_issue_count": 1,
+      "allergy_count": 0,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Ibuprofen Daily — Safe (400mg x1 = 400mg)",
+    "prescription": "prescribe ibuprofen 400mg daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0,
+      "allergy_count": 0,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Warfarin + Ibuprofen Drug Interaction",
+    "prescription": "prescribe warfarin and ibuprofen 200mg daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 55,
+    "gender": "male",
+    "expected": {
+      "safety": "unsafe",
+      "interaction_count": 1,
+      "dosage_issue_count": 0,
+      "allergy_count": 0
+    }
+  },
+  {
+    "name": "Atorvastatin + Clarithromycin Interaction",
+    "prescription": "prescribe atorvastatin 20mg daily and clarithromycin 500mg twice daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 45,
+    "gender": "male",
+    "expected": {
+      "safety": "unsafe",
+      "interaction_count": 1,
+      "dosage_issue_count": 0,
+      "allergy_count": 0
+    }
+  },
+  {
+    "name": "NSAID Allergy with Ibuprofen",
+    "prescription": "prescribe ibuprofen 400mg daily",
+    "allergies": ["nsaid"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "female",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 1,
+      "interaction_count": 0,
+      "dosage_issue_count": 0
+    }
+  },
+  {
+    "name": "Penicillin Allergy with Amoxicillin",
+    "prescription": "prescribe amoxicillin 500mg twice daily",
+    "allergies": ["penicillin"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 1,
+      "interaction_count": 0,
+      "dosage_issue_count": 0
+    }
+  },
+  {
+    "name": "Multiple Allergies (NSAID + Penicillin)",
+    "prescription": "prescribe amoxicillin 500mg bid and ibuprofen 400mg daily",
+    "allergies": ["nsaid", "penicillin"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 2,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Unknown Allergy (Latex) — Should Have Zero Allergy Alerts",
+    "prescription": "prescribe ibuprofen 400mg daily",
+    "allergies": ["latex"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "allergy_count": 0
+    }
+  },
+  {
+    "name": "Unknown Drug",
+    "prescription": "prescribe unknownDrugX 500mg daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male"
+  },
+  {
+    "name": "Multiple Penicillin Drugs (Amoxicillin + Ampicillin)",
+    "prescription": "prescribe amoxicillin 500mg and ampicillin 250mg",
+    "allergies": ["penicillin"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 2
+    }
+  },
+  {
+    "name": "Case-Insensitive Allergy Matching (NSAID uppercase)",
+    "prescription": "prescribe ibuprofen 400mg daily",
+    "allergies": ["NSAID"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 1
+    }
+  },
+  {
+    "name": "Mixed-Case Allergies (NSAID + Penicillin)",
+    "prescription": "prescribe amoxicillin 500mg bid and ibuprofen 400mg daily",
+    "allergies": ["NSAID", "Penicillin"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 2
+    }
+  },
+  {
+    "name": "Missing Dosage — Paracetamol No mg_per_day",
+    "prescription": "prescribe paracetamol",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0
+    }
+  },
+  {
+    "name": "Stress Test — Multiple Issues Simultaneously",
+    "prescription": "prescribe paracetamol 1500mg four times daily, ibuprofen 400mg, warfarin, amoxicillin 500mg bid",
+    "allergies": ["nsaid", "penicillin"],
+    "current_medications": [],
+    "age": 40,
+    "gender": "male"
+  },
+  {
+    "name": "Brand Name Normalization (atorva + clarithro)",
+    "prescription": "prescribe atorva 20mg daily and clarithro 500mg twice daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 45,
+    "gender": "male",
+    "expected": {
+      "interaction_count": 1
+    }
+  },
+  {
+    "name": "Missing Frequency Only — Defaults to Once Daily",
+    "prescription": "prescribe paracetamol 500mg",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0
+    }
+  },
+  {
+    "name": "Current Medication Triggers Interaction",
+    "prescription": "prescribe clarithromycin 500mg twice daily",
+    "allergies": [],
+    "current_medications": ["atorvastatin"],
+    "age": 50,
+    "gender": "male",
+    "expected": {
+      "safety": "unsafe",
+      "interaction_count": 1
+    }
+  },
+  {
+    "name": "Current Medication Triggers Allergy Alert",
+    "prescription": "prescribe paracetamol 500mg twice daily",
+    "allergies": ["nsaid"],
+    "current_medications": ["ibuprofen"],
+    "age": 30,
+    "gender": "female",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 1
+    }
+  },
+  {
+    "name": "Elderly Patient Paracetamol — Uses Adult Rule",
+    "prescription": "prescribe paracetamol 500mg twice daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 70,
+    "gender": "female",
+    "expected": {
+      "safety": "safe",
+      "dosage_issue_count": 0
+    }
+  }
+]

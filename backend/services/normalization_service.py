@@ -185,19 +185,52 @@ def _fallback_extract_drug_inputs(text: str, terms: Dict[str, str], seen: Set[st
     return found
 
 
+# Ordered longest-first so "four times daily" matches before "daily".
+_FREQUENCY_PATTERN = re.compile(
+    r"("
+    r"six times daily"
+    r"|five times daily"
+    r"|four times daily"
+    r"|three times daily"
+    r"|twice daily"
+    r"|once daily"
+    r"|thrice daily"
+    r"|every\s+6\s+hours?"
+    r"|every\s+8\s+hours?"
+    r"|every\s+12\s+hours?"
+    r"|q\s*6\s*h"
+    r"|q\s*8\s*h"
+    r"|q\s*12\s*h"
+    r"|[1-6]\s+times?\s+daily"
+    r"|daily"
+    r"|every\s+day"
+    r"|od\b"
+    r"|bid\b"
+    r"|tid\b"
+    r"|qid\b"
+    r")",
+    flags=re.IGNORECASE,
+)
+
+
 def _extract_dose_frequency_near_term(text: str, term: str) -> tuple[Optional[str], Optional[str]]:
     match = re.search(rf"\b{re.escape(term)}\b", text, flags=re.IGNORECASE)
     if not match:
         return None, None
 
-    window = text[match.end() : match.end() + 70]
-    dosage_match = re.search(r"(\d+(?:\.\d+)?)\s*mg", window, flags=re.IGNORECASE)
-    frequency_match = re.search(
-        r"(once daily|twice daily|three times daily|thrice daily|daily|bid|tid|qid)",
-        window,
-        flags=re.IGNORECASE,
-    )
+    window = text[match.end() : match.end() + 80]
+    dosage_match = re.search(r"(\d+(?:\.\d+)?)\s*(mg|g)\b", window, flags=re.IGNORECASE)
+    frequency_match = _FREQUENCY_PATTERN.search(window)
 
-    dosage = f"{dosage_match.group(1)}mg" if dosage_match else None
+    if dosage_match:
+        raw_value = float(dosage_match.group(1))
+        unit = dosage_match.group(2).lower()
+        # Convert grams to milligrams (e.g. "1g" -> "1000mg")
+        if unit == "g":
+            raw_value *= 1000
+        dosage = f"{raw_value:g}mg"
+    else:
+        dosage = None
+
     frequency = frequency_match.group(1).lower() if frequency_match else None
     return dosage, frequency

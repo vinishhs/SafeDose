@@ -1,16 +1,68 @@
 {
   "paracetamol": {
-    "adult": { "min": 500, "max": 4000 },
-    "child": { "min": 10, "max": 60 }
+    "adult": {
+      "min": 500,
+      "max": 4000,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    },
+    "child": {
+      "min": 10,
+      "max": 60,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    }
   },
   "ibuprofen": {
-    "adult": { "min": 200, "max": 1200 },
-    "child": { "min": 5, "max": 40 }
+    "adult": {
+      "min": 200,
+      "max": 1200,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    },
+    "child": {
+      "min": 5,
+      "max": 40,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    }
   },
   "atorvastatin": {
-    "adult": { "min": 10, "max": 80 }
+    "adult": {
+      "min": 10,
+      "max": 80,
+      "overdose_severity": "high",
+      "underdose_severity": "low",
+      "source_id": "dosage_rules.json"
+    }
   },
   "clarithromycin": {
-    "adult": { "min": 500, "max": 1000 }
+    "adult": {
+      "min": 500,
+      "max": 1000,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    }
+  },
+  "amoxicillin": {
+    "adult": {
+      "min": 750,
+      "max": 3000,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    },
+    "child": {
+      "min": 125,
+      "max": 1500,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    }
   }
 }

@@ -1,0 +1,154 @@
+[
+    {
+        "name": "Paracetamol Safe",
+        "prescription": "prescribe paracetamol 500mg twice daily",
+        "allergies": []
+    },
+    {
+        "name": "Paracetamol Overdose",
+        "prescription": "prescribe paracetamol 1500mg four times daily",
+        "allergies": []
+    },
+    {
+        "name": "Paracetamol Max Dose Boundary",
+        "prescription": "prescribe paracetamol 1000mg four times daily",
+        "allergies": []
+    },
+    {
+        "name": "Paracetamol q6h",
+        "prescription": "prescribe paracetamol 650mg q6h",
+        "allergies": []
+    },
+    {
+        "name": "Amoxicillin TID",
+        "prescription": "prescribe amoxicillin 500mg tid",
+        "allergies": []
+    },
+    {
+        "name": "Clarithromycin BID",
+        "prescription": "prescribe clarithromycin 500mg bid",
+        "allergies": []
+    },
+    {
+        "name": "Ibuprofen Every 6 Hours",
+        "prescription": "prescribe ibuprofen 400mg every 6 hours",
+        "allergies": []
+    },
+    {
+        "name": "Ibuprofen Daily",
+        "prescription": "prescribe ibuprofen 400mg daily",
+        "allergies": []
+    },
+    {
+        "name": "Warfarin and Ibuprofen Interaction",
+        "prescription": "prescribe warfarin and ibuprofen",
+        "allergies": []
+    },
+    {
+        "name": "Atorvastatin and Clarithromycin Interaction",
+        "prescription": "prescribe atorvastatin 20mg daily and clarithromycin 500mg twice daily",
+        "allergies": []
+    },
+    {
+        "name": "NSAID Allergy with Ibuprofen",
+        "prescription": "prescribe ibuprofen 400mg daily",
+        "allergies": [
+            "nsaid"
+        ]
+    },
+    {
+        "name": "Penicillin Allergy with Amoxicillin",
+        "prescription": "prescribe amoxicillin 500mg twice daily",
+        "allergies": [
+            "penicillin"
+        ]
+    },
+    {
+        "name": "Multiple Allergies",
+        "prescription": "prescribe amoxicillin and ibuprofen",
+        "allergies": [
+            "nsaid",
+            "penicillin"
+        ]
+    },
+    {
+        "name": "Unknown Allergy",
+        "prescription": "prescribe ibuprofen 400mg daily",
+        "allergies": [
+            "latex"
+        ]
+    },
+    {
+        "name": "Unknown Drug",
+        "prescription": "prescribe unknownDrugX 500mg",
+        "allergies": []
+    },
+    {
+        "name": "Multiple Penicillin Drugs",
+        "prescription": "prescribe amoxicillin and ampicillin",
+        "allergies": [
+            "penicillin"
+        ]
+    },
+    {
+        "name": "Case Insensitive Allergy",
+        "prescription": "prescribe ibuprofen",
+        "allergies": [
+            "NSAID"
+        ]
+    },
+    {
+        "name": "Comma Style Allergies",
+        "prescription": "prescribe amoxicillin and ibuprofen",
+        "allergies": [
+            "NSAID",
+            "Penicillin"
+        ]
+    },
+    {
+        "name": "Missing Dosage Information",
+        "prescription": "prescribe paracetamol",
+        "allergies": []
+    },
+    {
+        "name": "Stress Test",
+        "prescription": "prescribe paracetamol 1500mg four times daily, ibuprofen 400mg, warfarin, amoxicillin 500mg bid",
+        "allergies": [
+            "nsaid",
+            "penicillin"
+        ]
+    },
+    {
+        "name": "Brand Name Normalization",
+        "prescription": "prescribe atorva 20mg and clarithro 500mg twice daily",
+        "allergies": []
+    },
+    {
+        "name": "Azithromycin Recognition",
+        "prescription": "prescribe azithromycin 500mg daily",
+        "allergies": []
+    },
+    {
+        "name": "Safe Multiple Drugs",
+        "prescription": "prescribe paracetamol and azithromycin",
+        "allergies": []
+    },
+    {
+        "name": "Current Medication Interaction",
+        "prescription": "prescribe clarithromycin 500mg twice daily",
+        "allergies": [],
+        "current_medications": [
+            "atorvastatin"
+        ]
+    },
+    {
+        "name": "Current Medication Allergy",
+        "prescription": "prescribe paracetamol",
+        "allergies": [
+            "nsaid"
+        ],
+        "current_medications": [
+            "ibuprofen"
+        ]
+    }
+]
