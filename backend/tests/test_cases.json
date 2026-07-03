@@ -150,5 +150,49 @@
         "current_medications": [
             "ibuprofen"
         ]
-    }
+    },
+    [
+        {
+            "name": "Current Medication No Dosage Parse Warning",
+            "prescription": "prescribe clarithromycin 500mg twice daily",
+            "current_medications": [
+                "atorvastatin"
+            ],
+            "allergies": []
+        },
+        {
+            "name": "Multiple Current Medications No Warnings",
+            "prescription": "prescribe ibuprofen 400mg daily",
+            "current_medications": [
+                "metformin",
+                "atorvastatin",
+                "aspirin"
+            ],
+            "allergies": []
+        },
+        {
+            "name": "Prescription Drug Still Generates Dosage Parse",
+            "prescription": "prescribe paracetamol",
+            "current_medications": [],
+            "allergies": []
+        },
+        {
+            "name": "Mixed Prescription And Current Medication",
+            "prescription": "prescribe paracetamol",
+            "current_medications": [
+                "metformin"
+            ],
+            "allergies": []
+        },
+        {
+            "name": "Current Medication Still Triggers Allergy",
+            "prescription": "prescribe paracetamol",
+            "current_medications": [
+                "ibuprofen"
+            ],
+            "allergies": [
+                "nsaid"
+            ]
+        }
+    ]
 ]

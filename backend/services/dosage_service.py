@@ -134,6 +134,10 @@ def check_dosage(drugs: List[NormalizedDrug], age_category: str) -> tuple[List[D
         parsed = parse_mg_per_day(drug.dosage_text, drug.frequency_text)
         drug.mg_per_day = parsed
         if parsed is None:
+            # Skip dosage‑parse warnings for current‑medication entries lacking dosage/frequency
+            if drug.source == "current_medication":
+                drug.mg_per_day = None
+                continue
             unknowns.append(
                 UnknownItem(
                     type="dosage_parse",

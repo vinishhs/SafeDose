@@ -29,3 +29,6 @@ Start the frontend in another terminal:
 cd "e:\Projects\gen ai\prescription-verifier"
 .\.venv\Scripts\python.exe -m streamlit run frontend\app.py --server.port 8501
 ```
+
+testing - 
+python scripts/run_regression_tests.py
