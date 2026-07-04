@@ -121,15 +121,20 @@ def check_dosage(drugs: List[NormalizedDrug], age_category: str) -> tuple[List[D
 
         category_rule = drug_rules.get(age_category)
         if not isinstance(category_rule, dict):
-            unknowns.append(
-                UnknownItem(
-                    type="dosage_rule",
-                    value=f"{drug.normalized_name}:{age_category}",
-                    reason="No dosage rule exists for this age category.",
-                    source="dosage_rules.json",
+            if age_category == "elderly" and isinstance(drug_rules.get("adult"), dict):
+                category_rule = drug_rules["adult"]
+                drug.trace["fallback_used"] = True
+                drug.trace["rule_source"] = "adult_fallback"
+            else:
+                unknowns.append(
+                    UnknownItem(
+                        type="dosage_rule",
+                        value=f"{drug.normalized_name}:{age_category}",
+                        reason="No dosage rule exists for this age category.",
+                        source="dosage_rules.json",
+                    )
                 )
-            )
-            continue
+                continue
 
         parsed = parse_mg_per_day(drug.dosage_text, drug.frequency_text)
         drug.mg_per_day = parsed
