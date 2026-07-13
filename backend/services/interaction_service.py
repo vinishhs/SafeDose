@@ -35,14 +35,7 @@ def check_interactions(drugs: List[NormalizedDrug]) -> tuple[List[InteractionAle
 
         entry = interaction_entry(drug_a, drug_b)
         if entry is None:
-            unknowns.append(
-                UnknownItem(
-                    type="interaction",
-                    value=pair_key,
-                    reason="No interaction rule is present in interactions.json.",
-                    source="interactions.json",
-                )
-            )
+            # No documented interaction; do not generate an UnknownItem.
             continue
 
         severity = entry.get("severity", "unknown")
