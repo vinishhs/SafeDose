@@ -166,5 +166,50 @@
       "source_id": "dosage_rules.json",
       "recommendation": "Elderly patients should start at lower doses (0.0125mg to 0.025mg daily) to avoid adverse cardiac effects."
     }
+  },
+  "pravastatin": {
+    "adult": {
+      "min": 10,
+      "max": 80,
+      "overdose_severity": "high",
+      "underdose_severity": "low",
+      "source_id": "dosage_rules.json"
+    }
+  },
+  "rosuvastatin": {
+    "adult": {
+      "min": 5,
+      "max": 40,
+      "overdose_severity": "high",
+      "underdose_severity": "low",
+      "source_id": "dosage_rules.json"
+    }
+  },
+  "azithromycin": {
+    "adult": {
+      "min": 250,
+      "max": 2000,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    }
+  },
+  "doxycycline": {
+    "adult": {
+      "min": 100,
+      "max": 2000,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    }
+  },
+  "apixaban": {
+    "adult": {
+      "min": 2,
+      "max": 10,
+      "overdose_severity": "high",
+      "underdose_severity": "moderate",
+      "source_id": "dosage_rules.json"
+    }
   }
 }
