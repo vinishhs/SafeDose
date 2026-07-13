@@ -27,7 +27,37 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-TEST_CASES_PATH = PROJECT_ROOT / "tests" / "test_cases.json"
+# Dynamically discover all test case JSON files in the tests directory
+TESTS_DIR = PROJECT_ROOT / "tests"
+TEST_CASES_PATHS = sorted(TESTS_DIR.glob("*.json"))
+# Load and combine all test cases from discovered JSON files with validation
+combined_test_cases: list[dict] = []
+# Mapping filename -> number of tests loaded
+test_file_stats: dict[str, int] = {}
+# List of (path, error_message) for files that could not be processed
+invalid_files: list[tuple[Path, str]] = []
+for path in TEST_CASES_PATHS:
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            cases = json.load(fh)
+    except Exception as exc:
+        invalid_files.append((path, f"Invalid JSON: {exc}"))
+        continue
+    if not isinstance(cases, list):
+        invalid_files.append((path, f"Root element is not a list (found {type(cases).__name__})"))
+        continue
+    if not all(isinstance(item, dict) for item in cases):
+        invalid_files.append((path, "Not all items are dict objects"))
+        continue
+    test_file_stats[path.name] = len(cases)
+    combined_test_cases.extend(cases)
+# Report any malformed files but continue execution
+if invalid_files:
+    print("\nInvalid Test Files:")
+    print("-" * 30)
+    for p, reason in invalid_files:
+        print(f"✗ {p.name}: {reason}")
+    print("-" * 30)
 
 # ── FastAPI test client ────────────────────────────────────────────────────────
 try:
@@ -186,12 +216,11 @@ def _print_result(name: str, result: dict[str, Any], failures: list[str],
 # ── Main runner ────────────────────────────────────────────────────────────────
 
 def run_tests(filter_str: Optional[str] = None, fail_fast: bool = False) -> None:
-    if not TEST_CASES_PATH.exists():
-        print(red(f"[ERROR] Test cases file not found: {TEST_CASES_PATH}"))
+    # Use the combined, validated test cases discovered earlier
+    test_cases: list[dict] = combined_test_cases
+    if not test_cases:
+        print(red("No valid regression test files found."))
         sys.exit(1)
-
-    with open(TEST_CASES_PATH, "r", encoding="utf-8") as fh:
-        test_cases: list[dict] = json.load(fh)
 
     if filter_str:
         test_cases = [tc for tc in test_cases

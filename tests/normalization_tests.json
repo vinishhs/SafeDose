@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Unknown Drug",
+    "prescription": "prescribe unknownDrugX 500mg daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male"
+  }
+]

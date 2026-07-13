@@ -1,0 +1,90 @@
+[
+  {
+    "name": "NSAID Allergy with Ibuprofen",
+    "prescription": "prescribe ibuprofen 400mg daily",
+    "allergies": ["nsaid"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "female",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 1,
+      "interaction_count": 0,
+      "dosage_issue_count": 0
+    }
+  },
+  {
+    "name": "Penicillin Allergy with Amoxicillin",
+    "prescription": "prescribe amoxicillin 500mg twice daily",
+    "allergies": ["penicillin"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 1,
+      "interaction_count": 0,
+      "dosage_issue_count": 0
+    }
+  },
+  {
+    "name": "Multiple Allergies (NSAID + Penicillin)",
+    "prescription": "prescribe amoxicillin 500mg bid and ibuprofen 400mg daily",
+    "allergies": ["nsaid", "penicillin"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 2,
+      "interaction_count": 0
+    }
+  },
+  {
+    "name": "Unknown Allergy (Latex) — Should Have Zero Allergy Alerts",
+    "prescription": "prescribe ibuprofen 400mg daily",
+    "allergies": ["latex"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "allergy_count": 0
+    }
+  },
+  {
+    "name": "Multiple Penicillin Drugs (Amoxicillin + Ampicillin)",
+    "prescription": "prescribe amoxicillin 500mg and ampicillin 250mg",
+    "allergies": ["penicillin"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 2
+    }
+  },
+  {
+    "name": "Case-Insensitive Allergy Matching (NSAID uppercase)",
+    "prescription": "prescribe ibuprofen 400mg daily",
+    "allergies": ["NSAID"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 1
+    }
+  },
+  {
+    "name": "Mixed-Case Allergies (NSAID + Penicillin)",
+    "prescription": "prescribe amoxicillin 500mg bid and ibuprofen 400mg daily",
+    "allergies": ["NSAID", "Penicillin"],
+    "current_medications": [],
+    "age": 30,
+    "gender": "male",
+    "expected": {
+      "safety": "caution",
+      "allergy_count": 2
+    }
+  }
+]

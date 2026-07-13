@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Brand Name Normalization (atorva + clarithro)",
+    "prescription": "prescribe atorva 20mg daily and clarithro 500mg twice daily",
+    "allergies": [],
+    "current_medications": [],
+    "age": 45,
+    "gender": "male",
+    "expected": {
+      "interaction_count": 1
+    }
+  }
+]
